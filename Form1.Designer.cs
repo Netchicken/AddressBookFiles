@@ -39,7 +39,8 @@
             lbxAddress = new ListBox();
             btnNewAddress = new Button();
             btnDeleteAddress = new Button();
-            btnSave = new Button();
+            btnEdit = new Button();
+            label4 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -110,7 +111,7 @@
             panel1.Controls.Add(txtAddress);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(txtPhone);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(13, 31);
             panel1.Name = "panel1";
             panel1.Size = new Size(230, 210);
             panel1.TabIndex = 8;
@@ -119,14 +120,14 @@
             // 
             lbxAddress.FormattingEnabled = true;
             lbxAddress.ItemHeight = 15;
-            lbxAddress.Location = new Point(257, 12);
+            lbxAddress.Location = new Point(249, 31);
             lbxAddress.Name = "lbxAddress";
-            lbxAddress.Size = new Size(386, 199);
+            lbxAddress.Size = new Size(267, 214);
             lbxAddress.TabIndex = 9;
             // 
             // btnNewAddress
             // 
-            btnNewAddress.Location = new Point(15, 236);
+            btnNewAddress.Location = new Point(16, 255);
             btnNewAddress.Name = "btnNewAddress";
             btnNewAddress.Size = new Size(109, 23);
             btnNewAddress.TabIndex = 10;
@@ -136,7 +137,7 @@
             // 
             // btnDeleteAddress
             // 
-            btnDeleteAddress.Location = new Point(130, 236);
+            btnDeleteAddress.Location = new Point(131, 255);
             btnDeleteAddress.Name = "btnDeleteAddress";
             btnDeleteAddress.Size = new Size(112, 23);
             btnDeleteAddress.TabIndex = 11;
@@ -144,22 +145,34 @@
             btnDeleteAddress.UseVisualStyleBackColor = true;
             btnDeleteAddress.Click += btnDeleteAddress_Click;
             // 
-            // btnSave
+            // btnEdit
             // 
-            btnSave.Location = new Point(377, 236);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
-            btnSave.TabIndex = 12;
-            btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnEdit.Location = new Point(249, 255);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(75, 23);
+            btnEdit.TabIndex = 12;
+            btnEdit.Text = "Edit Entry";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label4.Location = new Point(15, 3);
+            label4.Name = "label4";
+            label4.Size = new Size(135, 25);
+            label4.TabIndex = 13;
+            label4.Text = "Address Book";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSkyBlue;
-            ClientSize = new Size(670, 287);
-            Controls.Add(btnSave);
+            ClientSize = new Size(523, 285);
+            Controls.Add(label4);
+            Controls.Add(btnEdit);
             Controls.Add(btnDeleteAddress);
             Controls.Add(btnNewAddress);
             Controls.Add(lbxAddress);
@@ -169,6 +182,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -184,6 +198,7 @@
         private ListBox lbxAddress;
         private Button btnNewAddress;
         private Button btnDeleteAddress;
-        private Button btnSave;
+        private Button btnEdit;
+        private Label label4;
     }
 }

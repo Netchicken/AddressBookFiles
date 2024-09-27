@@ -117,8 +117,49 @@ namespace AddressBookFiles
             cbxName.SelectedIndex = 0;
             cbxName.Items.Clear(); //clear out old data
             lbxAddress.Items.Clear();
+            txtName.Text = string.Empty;
             txtAddress.Text = string.Empty;
             txtPhone.Text = string.Empty;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            string deleteThisPerson = "";
+
+            if (!String.IsNullOrEmpty(cbxName.SelectedItem.ToString()))
+            {
+                string editedAddress = txtName.Text + "," + txtPhone.Text + "," + txtAddress.Text;
+
+
+                foreach (string person in address)
+                {
+                    //split each address
+                    string[] data = person.Split(',');
+
+                    //if the address has the name of the person 
+                    if (data[0].Contains(cbxName.SelectedItem.ToString()))
+                    {
+                        deleteThisPerson = person;
+                        break;
+                    }
+                }
+
+                //modify the array
+                address.Remove(deleteThisPerson);
+                address.Add(editedAddress);
+
+                //delete the existing file
+                File.Delete(filePath);
+
+                // Write the filtered lines back to the file
+                File.WriteAllLines(filePath, address);
+
+                //load the addresses again
+                Reset();
+                LoadAddresses();
+
+
+            }
         }
     }
 
