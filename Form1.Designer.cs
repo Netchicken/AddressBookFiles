@@ -38,7 +38,7 @@
             panel1 = new Panel();
             lbxAddress = new ListBox();
             btnNewAddress = new Button();
-            btnRun = new Button();
+            btnDeleteAddress = new Button();
             btnSave = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -134,14 +134,15 @@
             btnNewAddress.UseVisualStyleBackColor = true;
             btnNewAddress.Click += btnNewAddress_Click;
             // 
-            // btnRun
+            // btnDeleteAddress
             // 
-            btnRun.Location = new Point(257, 236);
-            btnRun.Name = "btnRun";
-            btnRun.Size = new Size(75, 23);
-            btnRun.TabIndex = 11;
-            btnRun.Text = "Run";
-            btnRun.UseVisualStyleBackColor = true;
+            btnDeleteAddress.Location = new Point(130, 236);
+            btnDeleteAddress.Name = "btnDeleteAddress";
+            btnDeleteAddress.Size = new Size(112, 23);
+            btnDeleteAddress.TabIndex = 11;
+            btnDeleteAddress.Text = "Delete Address";
+            btnDeleteAddress.UseVisualStyleBackColor = true;
+            btnDeleteAddress.Click += btnDeleteAddress_Click;
             // 
             // btnSave
             // 
@@ -159,7 +160,7 @@
             BackColor = Color.LightSkyBlue;
             ClientSize = new Size(670, 287);
             Controls.Add(btnSave);
-            Controls.Add(btnRun);
+            Controls.Add(btnDeleteAddress);
             Controls.Add(btnNewAddress);
             Controls.Add(lbxAddress);
             Controls.Add(panel1);
@@ -182,7 +183,7 @@
         private Panel panel1;
         private ListBox lbxAddress;
         private Button btnNewAddress;
-        private Button btnRun;
+        private Button btnDeleteAddress;
         private Button btnSave;
     }
 }
