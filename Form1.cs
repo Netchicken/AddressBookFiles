@@ -15,13 +15,10 @@ namespace AddressBookFiles
             LoadAddresses();
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
 
-        }
         private void LoadAddresses()
         {
-            cbxName.Items.Clear(); //clear out old data
+            address.Clear();
             lbxAddress.Items.Clear();
             string line;
 
@@ -63,16 +60,15 @@ namespace AddressBookFiles
 
         private void btnNewAddress_Click(object sender, EventArgs e)
         {
-            string newAddress;
-
-            newAddress = txtName.Text + ", " + txtAddress.Text + ", " + txtPhone.Text;
+            string newAddress = txtName.Text + ", " + txtAddress.Text + ", " + txtPhone.Text;
 
             // This text is always added, making the file longer over time
             using (StreamWriter writer = new StreamWriter(filePath, true))
                 writer.WriteLine(newAddress);
 
-
             //load the addresses again
+
+            Reset();
             LoadAddresses();
 
         }
@@ -107,17 +103,22 @@ namespace AddressBookFiles
                 File.WriteAllLines(filePath, address);
 
                 //load the addresses again
+                Reset();
                 LoadAddresses();
 
-                //reset address entries
-                txtAddress.Text = string.Empty;
-                txtPhone.Text = string.Empty;
-                cbxName.SelectedIndex = 0;
+
             }
+        }
 
+        private void Reset()
+        {
+            //reset address entries
 
-
-
+            cbxName.SelectedIndex = 0;
+            cbxName.Items.Clear(); //clear out old data
+            lbxAddress.Items.Clear();
+            txtAddress.Text = string.Empty;
+            txtPhone.Text = string.Empty;
         }
     }
 
